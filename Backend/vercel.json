@@ -1,15 +1,14 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "src/index.js", "use": "@vercel/node" }
-  ],
-  "routes": [
-    { "src": "/api/productos", "dest": "src/routes/productRoutes.js" },
-    { "src": "/(.*)", "dest": "src/index.js" }
-  ],
-  "functions": {
-    "api/productos.js": {
-      "runtime": "@vercel/node"
-    }
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/index.js",
+      "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)", "dest": "src/index.js" 
+      }
+    ]
   }
-}
