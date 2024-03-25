@@ -1,17 +1,19 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/index.js",
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.js",
       "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      { "src": "/api/items", "dest": "src/Routes/itemsRoutes.js" },
-      { "src": "/api/items/:id", "dest": "src/Routes/itemsRoutes.js" },
-      {
-        "src": "/(.*)",
-        "dest": "src/index.js"
-      }
-    ]
-  }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/items",
+      "dest": "/src/Routes/itemsRoutes.js"
+    },
+    {
+      "src": "/api/items/:id",
+      "dest": "/src/Routes/itemsRoutes.js"
+    }
+  ]
+}
