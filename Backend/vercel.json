@@ -7,11 +7,7 @@
       }
     ],
     "routes": [
-      { "src": "/api/items", "dest": "src/Routes/itemsRoutes.js" },
-      { "src": "/api/items/:id", "dest": "src/Routes/itemsRoutes.js" },
-      {
-        "src": "/(.*)",
-        "dest": "src/index.js"
-      }
+      { "src": "/api/items", "dest": "src/Routes/itemsRoutes.js" }
+
     ]
   }
