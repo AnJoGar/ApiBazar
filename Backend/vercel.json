@@ -9,11 +9,11 @@
   "routes": [
     {
       "src": "/api/items",
-      "dest": "itemsRoutes.js"
+      "dest": "src/itemProductController.js"
     },
     {
       "src": "/api/items/:id",
-      "dest": "itemsRoutes.js"
+      "dest": "src/itemProductController.js"
     }
   ]
 
