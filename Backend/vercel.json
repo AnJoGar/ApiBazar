@@ -7,13 +7,10 @@
     }
   ],
   "routes": [
+
     {
-      "src": "/api/items",
-      "dest": "/src/itemsRoutes.js"
-    },
-    {
-      "src": "/api/items/:id",
-      "dest": "/src/itemsRoutes.js"
+      "src": "/(.*)",
+      "dest": "src/index.js"
     }
   ]
 }
