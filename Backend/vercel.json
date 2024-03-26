@@ -8,7 +8,11 @@
   ],
   "routes": [
 
-    { "src": "/api/items", "dest": "src/index.js" },
-    { "src": "/api/items/:id", "dest": "src/index.js" }
-  ]
+    { "src":  "/(.*)", "destination": "/" }
+
+
+  ],
+
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
+
