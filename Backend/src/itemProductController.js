@@ -15,7 +15,7 @@ exports.searchProducts = (req, res) => {
 exports.getProductDetails = (req, res) => {
   
   const productId = parseInt(req.params.id);
-  const product = products.find(product => product.id === productId);
+  const product = req.products.find(product => product.id === productId);
   if (product) {
     res.json(product);
   } else {
