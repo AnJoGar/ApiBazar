@@ -1,6 +1,6 @@
 
 //Controlador::itemProductController
-const products = require('../products.json');
+const products = require('./products.json');
 
 // Controlador para buscar productos
 exports.searchProducts = (req, res) => {

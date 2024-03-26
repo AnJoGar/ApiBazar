@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const itemsController = require('../Controller/itemProductController');
+const itemsController = require('../src/itemProductController');
 
 // Ruta para buscar productos
 router.get('/api/items', itemsController.searchProducts);
