@@ -8,7 +8,7 @@
   ],
   "routes": [
 
-    { "handle": "src/itemsRoutes.js", "src": "/api/items/.*" },
-    { "handle": "src/itemsRoutes.js", "src": "/api/items" }
+    { "src": "/api/items", "dest": "index.js" },
+    { "src": "/api/items/:id", "dest": "index.js" }
   ]
 }
