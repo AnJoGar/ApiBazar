@@ -13,12 +13,17 @@ exports.searchProducts = (req, res) => {
 
 // Controlador para obtener detalles de un producto específico
 exports.getProductDetails = (req, res) => {
-  
   const productId = parseInt(req.params.id);
-  const product = req.products.find(product => product.id === productId);
+  
+  // Importa los datos de productos
+  const products = require('./products.json');
+
+  // Busca el producto por ID
+  const product = products.products.find(product => product.id === productId);
+
   if (product) {
     res.json(product);
   } else {
     res.status(404).json({ error: 'Producto no encontrado' });
   }
-}
+};
