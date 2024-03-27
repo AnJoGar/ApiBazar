@@ -1,42 +1,39 @@
-//app.js 
-
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const itemsRouter = require('./src/itemsRoutes');
+
+const productsFilePath = path.resolve(__dirname, 'products.json');
+console.log('Ruta del archivo products.json:', productsFilePath);
+
+const products = require('./products.json');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const fs = require('fs');
+
 app.use(bodyParser.json());
 app.use(cors());
 
-// Rutas
-// Lee el contenido del archivo products.json
-fs.readFile('src/products.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error al leer el archivo products.json:', err);
-      return;
-    }
-  
-    try {
-      // Parsea el contenido como un objeto JSON
-      const products = JSON.parse(data);
-      console.log('Productos cargados correctamente:', products);
-  
-      // Se pasa la lista de productos al enrutador de items
-      app.use((req, res, next) => {
-        req.products = products.products;
-        next();
-      });
-  
-      // Se monta el enrutador de items
-      app.use(itemsRouter);
-    } catch (error) {
-      console.error('Error al parsear el contenido de products.json:', error);
-    }
-  });
-  
-  app.listen(PORT, () => {
-    console.log(`Servidor en ejecución en el puerto ${PORT}`);
-  });
+// Controlador para buscar productos
+app.get('/api/items', (req, res) => {
+  const query = req.query.q;
+  const filteredProducts = products.products.filter(product =>
+    product.title.toLowerCase().includes(query.toLowerCase())
+  );
+  res.json(filteredProducts);
+});
+
+// Controlador para obtener detalles de un producto específico
+app.get('/api/items/:id', (req, res) => {
+  const productId = parseInt(req.params.id);
+  const product = products.products.find(product => product.id === productId);
+  if (product) {
+    res.json(product);
+  } else {
+    res.status(404).json({ error: 'Producto no encontrado' });
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor en ejecución en el puerto ${PORT}`);
+});
