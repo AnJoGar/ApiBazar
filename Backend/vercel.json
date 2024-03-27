@@ -1,19 +1,19 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/index.js", "use": "@vercel/node" }
+    { "src": "index.js", "use": "@vercel/node" }
   ],
   "routes": [
     { "handle": "filesystem" },
     {
       "src": "/api/items",
       "methods": ["GET"],
-      "dest": "/src/index.js"
+      "dest": "/index.js"
     },
     {
       "src": "/api/items/:id",
       "methods": ["GET"],
-      "dest": "/src/index.js"
+      "dest": "/index.js"
     }
   ]
 }
