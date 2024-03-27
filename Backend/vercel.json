@@ -8,14 +8,10 @@
   ],
   "routes": [
     {
-      "src": "/api/items",
-      "methods": ["GET"],
-      "dest": "/index.js"
-    },
-    {
-      "src": "/api/items/:id",
-      "methods": ["GET"],
+      "src": "(.*)",
+
       "dest": "/index.js"
     }
+    
   ]
 }
