@@ -1,4 +1,3 @@
-
 //Controlador::itemProductController
 const products = require('./products.json');
 
@@ -16,10 +15,11 @@ exports.getProductDetails = (req, res) => {
   const productId = parseInt(req.params.id);
   
   // Importa los datos de productos
-  const products = require('./products.json');
+  const productsData = require('./products.json');
+  const products = req.products || productsData; // Utiliza req.products si está definido, de lo contrario, usa productsData
 
   // Busca el producto por ID
-  const product = products.products.find(product => product.id === productId);
+  const product = products.find(product => product.id === productId);
 
   if (product) {
     res.json(product);

@@ -1,5 +1,11 @@
 //index.js
+const path = require('path');
 
+// Obtener la ruta completa del archivo products.json
+const productsFilePath = path.resolve(__dirname, 'products.json');
+
+
+console.log('Ruta del archivo products.json:', productsFilePath);
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
