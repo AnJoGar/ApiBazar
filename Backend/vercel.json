@@ -9,11 +9,11 @@
   "routes": [
     {
       "src": "/api/items",
-      "dest": "src/itemsRoutes.js"
+      "dest": "src/index.js"
     },
     {
       "src": "/api/items/:id",
-      "dest": "src/itemsRoutes.js"
+      "dest": "src/index.js"
     }
   ]
 
