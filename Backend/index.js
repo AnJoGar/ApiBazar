@@ -28,9 +28,10 @@ app.get('/api/items', (req, res) => {
 // Controlador para obtener detalles de un producto específico
 app.get('/api/items/:id', (req, res) => {
   const productId = parseInt(req.params.id);
-  
+  console.log('Solicitud GET recibida en /api/items/:id con ID:', productId);
 
   const product = products.products.find(product => product.id === productId);
+  console.log('Producto encontrado:', product);
   if (product) {
     res.json(product);
   } else {
