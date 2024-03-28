@@ -1,3 +1,5 @@
+//index.js
+
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -26,6 +28,8 @@ app.get('/api/items', (req, res) => {
 // Controlador para obtener detalles de un producto específico
 app.get('/api/items/:id', (req, res) => {
   const productId = parseInt(req.params.id);
+  
+
   const product = products.products.find(product => product.id === productId);
   if (product) {
     res.json(product);
